@@ -1,0 +1,29 @@
+.right-nav-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 14px;
+}
+
+.right-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.right-nav h3 {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.right-nav .upcoming-tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.right-nav .progress-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}

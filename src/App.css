@@ -1,20 +1,27 @@
 .app-container {
-    display: grid;
-    grid-template-columns: repeat(12,1fr); /* 12 col css grid */
-    min-height: 95vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 col css grid */
+  height: 100vh;
 }
 
 /* grid system control ---12 col */
 
 .grid-sidenav {
-    grid-column: span 2; 
-    background-color: red;
+  grid-column: span 2;
+  height: 100vh;
 }
 
 .grid-center {
-    grid-column: span 7;
+  grid-column: span 8;
+  height: 100vh;
+  padding: 14px 14px 0px 14px;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
 }
 
-.grid-right{
-    grid-column: span 3;
+.grid-right {
+  grid-column: span 2;
+  height: 100vh;
+  padding: 14px 14px 0px 0px;
 }

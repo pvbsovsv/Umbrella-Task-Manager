@@ -1,0 +1,30 @@
+.stat-card {
+    flex: 1;
+    width: fit-content;
+    height: fit-content;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: capitalize;
+    border-radius: 8px;
+    border: solid 1px rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);/* for safari */
+    font-size: 0.9375rem;
+}
+
+.stat-value-container{
+    height: 25px;
+    min-width: 25px;
+    padding: 0 4px;
+    background-color: var(--bg-secondary);
+    border:  solid 1px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent);
+}
+

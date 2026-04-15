@@ -1,8 +1,11 @@
-import { useState } from 'react'
+
+//style
 import './App.css'
 
 //components
 import Sidenav from './components/Sidenav'
+import Dashboard from './components/Dashboard'
+import RightNav from './components/RightNav'
 
 function App() {
 
@@ -11,19 +14,18 @@ function App() {
       <div className="app-container">
 
         <div className="grid-sidenav">
-          {/* sidenav goes here */}
 
           <Sidenav />
 
         </div>
 
         <div className="grid-center">
-          {/* center panel goes here */}
+          <Dashboard />
         </div>
 
 
         <div className="grid-right">
-          {/* right panel goes here */}
+          <RightNav />
         </div>
       </div>
     </>

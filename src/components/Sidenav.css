@@ -1,0 +1,44 @@
+.sidenav-container {
+  background-color: var(--bg-secondary); /* will leave */
+  min-height: 100%;
+  min-width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  border-right: solid 1px var(--border);
+}
+
+.brand-logo {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: solid 1px var(--border);
+}
+
+.sidenav-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidenav-container ul li {
+  display: flex;
+  align-items: center;
+}
+
+.sidenav-container ul li > span {
+  margin-left: 8px;
+}
+
+.sidenav-container ul li.isActive {
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+.feature-na {
+  color: var(--text-muted); /* unavailable features */
+}

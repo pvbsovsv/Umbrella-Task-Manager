@@ -1,0 +1,69 @@
+
+
+import "./RecentTaskCard.css"
+
+//icons 
+
+//icons
+import { CircleCheck } from 'lucide-react';
+import { Ellipsis } from 'lucide-react';
+
+function RecentTaskCard({ id, title, description, completed, priority, dueDate }) {
+
+    // color regarding priority
+    function getColor() {
+        if (priority === "high") return "var(--priority-high)"
+        if (priority === "medium") return "var(--priority-medium)"
+        if (priority === "low") return "var(--priority-low)"
+
+        return "(var--border)"
+    }
+
+
+    // shorten priority word
+    function shortenPrio() {
+
+
+        if (priority === "high") return "H"
+        if (priority === "medium") return "M"
+        if (priority === "low") return "L"
+
+        return ""
+    }
+
+
+    return (
+
+
+        <div className='rc-task-card'>
+
+            <div className="rc-task-card-header">
+                <p>{title}</p>
+                <div style={{ borderColor: getColor() }} className="priority-container">
+                    <span style={{ color: getColor() }} >{shortenPrio()}</span>
+                </div>
+            </div>
+
+
+            <div className="rc-task-card-description">
+                <span>{description}</span>
+            </div>
+
+            <div className="rc-task-card-footer">
+                <div>
+                    <span>due</span>
+                    <p>{dueDate}</p>
+                </div>
+
+                <div className="rc-task-card-actions">
+                    <button><Ellipsis /></button>
+                </div>
+
+            </div>
+
+
+        </div>
+    )
+}
+
+export default RecentTaskCard
