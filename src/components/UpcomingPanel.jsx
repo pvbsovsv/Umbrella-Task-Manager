@@ -13,7 +13,7 @@ function UpcomingPanel() {
             <p>Find freelance jobs</p>
           </div>
           <div className="upcoming-info">
-            <span>Due in 2 days</span>
+            <span>Due 2D</span>
           </div>
         </li>
         <li>
@@ -21,7 +21,7 @@ function UpcomingPanel() {
             <p>Prepare Ams trip</p>
           </div>
           <div className="upcoming-info">
-            <span>Due in 15 days</span>
+            <span>due 15d</span>
           </div>
         </li>
         <li>
@@ -29,7 +29,7 @@ function UpcomingPanel() {
             <p>Class project</p>
           </div>
           <div className="upcoming-info">
-            <span>Due in 20 days</span>
+            <span>Due 20d</span>
           </div>
         </li>
       </ul>

@@ -12,7 +12,7 @@
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);/* for safari */
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
 }
 
 .stat-value-container{

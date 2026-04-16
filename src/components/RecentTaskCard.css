@@ -21,7 +21,7 @@
 }
 
 .rc-task-card-header p {
-  font-size: 0.9rem; /* 15px */
+  font-size: 1.0625rem; /* 17px */
   font-weight: 600;
   width: 75%;
 }
@@ -36,7 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
 }
 
 .rc-task-card-header span {
@@ -78,5 +78,6 @@
 }
 
 .rc-task-card-actions button {
+    font-size: 1rem;
     color: var(--accent);
 }

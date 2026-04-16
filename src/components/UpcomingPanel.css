@@ -11,13 +11,18 @@
 
 .upcoming-container ul li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   padding-bottom: 14px;
   border-bottom: solid 1px var(--border);
   gap: 14px;
 }
 .upcoming-container ul li:last-of-type {
     border-bottom: none;
+}
+
+.upcoming-header p {
+  font-size: 0.875rem;
 }
 
 .upcoming-header {
@@ -58,4 +63,5 @@
   justify-content: center;
   font-size: 0.75rem;
   justify-self: end;
+  color: var(--text-muted);
 }
