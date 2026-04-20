@@ -2,13 +2,10 @@
 
 import "./RecentTaskCard.css"
 
-//icons 
-
-//icons
-import { CircleCheck } from 'lucide-react';
 import { Ellipsis } from 'lucide-react';
 
 function RecentTaskCard({ id, title, description, completed, priority, dueDate }) {
+
 
     // color regarding priority
     function getColor() {
@@ -16,7 +13,7 @@ function RecentTaskCard({ id, title, description, completed, priority, dueDate }
         if (priority === "medium") return "var(--priority-medium)"
         if (priority === "low") return "var(--priority-low)"
 
-        return "(var--border)"
+        return "var(--border)"
     }
 
 
@@ -35,7 +32,7 @@ function RecentTaskCard({ id, title, description, completed, priority, dueDate }
     return (
 
 
-        <div className='rc-task-card'>
+        <div className='rc-task-card glass'>
 
             <div className="rc-task-card-header">
                 <p>{title}</p>
@@ -51,8 +48,7 @@ function RecentTaskCard({ id, title, description, completed, priority, dueDate }
 
             <div className="rc-task-card-footer">
                 <div>
-                    <span>due</span>
-                    <p>{dueDate}</p>
+                    <span>due {dueDate}</span>
                 </div>
 
                 <div className="rc-task-card-actions">

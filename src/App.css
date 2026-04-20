@@ -14,7 +14,7 @@
 .grid-center {
   grid-column: span 8;
   height: 100vh;
-  padding: 14px 14px 0px 14px;
+  padding: 14px 14px 0 14px;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE */
@@ -23,5 +23,5 @@
 .grid-right {
   grid-column: span 2;
   height: 100vh;
-  padding: 14px 14px 0px 0px;
+  padding: 14px 14px 0 0;
 }

@@ -6,30 +6,24 @@ import './TaskList.css'
 //components
 import TaskCard from "./TaskCard";
 
-//json with tasks
 
-import tasksJson from '../assets/tasks.json'
-
-
-
-function TaskList() {
-
-    const taskListArr = tasksJson
-
- 
+function TaskList({ taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask }) {
 
 
     return (
         <div className="task-list-container">
 
-            {taskListArr.map((task =>
+            {taskList.length === 0 ? <span className="no-tasks">No tasks created. Create a task to begin</span> : taskList.map((task =>
 
                 <TaskCard
                     key={task.id}
-                    {...task} //all props combined - spread operator
+                    {...task}
+                    deleteTask={deleteTask}
+                    markAsCompleted={markAsCompleted}
+                    editTask={editTask}
+                    setShowEditModal={setShowEditModal}
+                    setEditSelectedTask={setEditSelectedTask}
                 />))}
-
-
         </div>
     )
 }

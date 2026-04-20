@@ -10,7 +10,7 @@ function SearchBar() {
   return (
         <div className="searchbar">
             <Search size={18} strokeWidth={1.25} />
-            <input type="text" placeholder='Search tasks...'></input>
+            <input type="text" placeholder='Search tasks...' aria-label="Search tasks"></input>
         </div>
 
 

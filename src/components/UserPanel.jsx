@@ -1,9 +1,8 @@
 
 import './UserPanel.css'
 //icons
-import { Inbox } from 'lucide-react';
-import { Bell } from 'lucide-react';
-import { ChevronDown } from 'lucide-react'
+import { Inbox, Bell, ChevronDown } from 'lucide-react';
+
 //assets
 import userPic from '../assets/man.png'
 
@@ -12,9 +11,9 @@ import userPic from '../assets/man.png'
 function UserPanel() {
   return (
     <div className="user-panel">
-      <button><Inbox size={18} strokeWidth={1.5} /></button>
-      <button><Bell size={18} strokeWidth={1.5} /></button>
-      <div className="user-header">
+      <button className="glass"><Inbox size={18} strokeWidth={1.5} /></button>
+      <button className="glass"><Bell size={18} strokeWidth={1.5} /></button>
+      <div className="user-header glass">
         <div className="user-pic">
           <div>
             <img src={userPic} alt="" />

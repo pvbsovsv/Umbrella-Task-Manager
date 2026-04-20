@@ -1,8 +1,10 @@
 .task-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-display: flex;
-flex-direction: column;
-gap: 14px;
 
-
+.no-tasks {
+  color: var(--text-primary);
 }

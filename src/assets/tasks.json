@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Supermarket shopping",
     "description": "Buy: Potatoes, eggs, milk, sugar, dogfood",
-    "completed": false, 
+    "completed": false,
     "priority": "high",
     "dueDate": "2026-04-20"
   },
@@ -11,15 +11,15 @@
     "id": 2,
     "title": "Pickup laundry",
     "description": "ticket 988800",
-    "completed": false, 
+    "completed": false,
     "priority": "medium",
     "dueDate": "2026-04-18"
   },
   {
     "id": 3,
-    "title": "class project",
+    "title": "Class project",
     "description": "theme is animals of Venezuela",
-    "completed": false, 
+    "completed": true,
     "priority": "medium",
     "dueDate": "2026-04-24"
   },
@@ -27,15 +27,15 @@
     "id": 4,
     "title": "Prepare Ams trip",
     "description": "create an itinerary and prices",
-    "completed": false, 
+    "completed": false,
     "priority": "medium",
     "dueDate": "2026-05-18"
   },
   {
-    "id":5,
+    "id": 5,
     "title": "Find freelance jobs",
     "description": "check ways to land freelance jobs",
-    "completed": false, 
+    "completed": true,
     "priority": "high",
     "dueDate": "2026-10-27"
   },
@@ -43,9 +43,72 @@
     "id": 6,
     "title": "Create an SPA using React",
     "description": "you got this! the irony of self support is amazing",
-    "completed": false, 
+    "completed": false,
     "priority": "high",
     "dueDate": "2026-04-20"
+  },
+  {
+    "id": 7,
+    "title": "Review portfolio",
+    "description": "update projects and clean up the layout",
+    "completed": false,
+    "priority": "high",
+    "dueDate": "2026-05-01"
+  },
+  {
+    "id": 8,
+    "title": "Read React docs",
+    "description": "go through hooks and advanced patterns",
+    "completed": false,
+    "priority": "low",
+    "dueDate": "2026-05-10"
+  },
+  {
+    "id": 9,
+    "title": "Fix CV",
+    "description": "update tech stack and add recent projects",
+    "completed": true,
+    "priority": "high",
+    "dueDate": "2026-04-15"
+  },
+  {
+    "id": 10,
+    "title": "Set up GitHub profile",
+    "description": "add README, pin repos, update bio",
+    "completed": true,
+    "priority": "medium",
+    "dueDate": "2026-04-10"
+  },
+  {
+    "id": 11,
+    "title": "Buy new desk lamp",
+    "description": "something warm toned, not too bright",
+    "completed": false,
+    "priority": "low",
+    "dueDate": "2026-05-20"
+  },
+  {
+    "id": 12,
+    "title": "Call the bank",
+    "description": "sort out the direct debit issue",
+    "completed": false,
+    "priority": "high",
+    "dueDate": "2026-04-22"
+  },
+  {
+    "id": 13,
+    "title": "Research Node Express",
+    "description": "read up on REST APIs and middleware before the backend phase",
+    "completed": false,
+    "priority": "medium",
+    "dueDate": "2026-05-05"
+  },
+  {
+    "id": 14,
+    "title": "Book dentist appointment",
+    "description": "overdue by 3 months, just do it",
+    "completed": true,
+    "priority": "low",
+    "dueDate": "2026-04-28"
   }
-  
 ]

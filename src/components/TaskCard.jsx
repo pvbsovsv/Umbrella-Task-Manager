@@ -2,11 +2,10 @@
 import "./TaskCard.css"
 
 //icons
-import { CircleCheck } from 'lucide-react';
-import { CircleX } from 'lucide-react';
-import { FilePenLine } from 'lucide-react';
+import { CircleCheck, CircleX, FilePenLine } from 'lucide-react';
 
-function TaskCard({ id, title, description, completed, priority, dueDate, onComplete, onDelete }) {
+function TaskCard({ id, title, description, completed, priority, dueDate, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask }) {
+
 
     // color regarding priority
     function getColor() {
@@ -14,13 +13,13 @@ function TaskCard({ id, title, description, completed, priority, dueDate, onComp
         if (priority === "medium") return "var(--priority-medium)"
         if (priority === "low") return "var(--priority-low)"
 
-        return "(var--border)"
+        return "var(--border)"
     }
 
 
 
     return (
-        <div className="task-card">
+        <div className="task-card glass">
 
             <div className="task-card-header">
                 <p>{title}</p>
@@ -35,17 +34,18 @@ function TaskCard({ id, title, description, completed, priority, dueDate, onComp
             <div className="task-card-footer">
 
                 <div>
-                    <span>due</span>
-                    <p>{dueDate}</p>
+                    <span>due {dueDate}</span>
                 </div>
 
                 <div className="task-card-actions">
-                    <button><CircleCheck size={28} strokeWidth={1.25} /></button>
-                    <button><CircleX size={28} strokeWidth={1.25} /></button>
-                    <button><FilePenLine size={30} strokeWidth={1.25} /></button>
+                    <button onClick={() => markAsCompleted(id)}><CircleCheck size={28} strokeWidth={1.25} /></button>
+                    <button onClick={() => deleteTask(id)}><CircleX size={28} strokeWidth={1.25} /></button>
+                    <button onClick={() => {
+                        setEditSelectedTask({id, title, description, dueDate, completed, priority})
+                        setShowEditModal(true)
+                    }} ><FilePenLine size={30} strokeWidth={1.25} /></button>
                 </div>
             </div>
-
         </div>
     )
 }

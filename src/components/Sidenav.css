@@ -33,7 +33,7 @@
   margin-left: 8px;
 }
 
-.sidenav-container ul li.isActive {
+.sidenav-container ul li.is-active {
   color: var(--text-primary);
   border-left: 3px solid var(--accent);
   padding-left: 10px;

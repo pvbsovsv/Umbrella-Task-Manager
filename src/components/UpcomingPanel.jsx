@@ -2,11 +2,11 @@ import './UpcomingPanel.css'
 
 
 function UpcomingPanel() {
+  //todo! this list now is hardcoded, needs to be mapped
   return (
     <div className='upcoming-container'>
 
 
-      {/* for now this list is hardcoded */}
       <ul>
         <li>
           <div className="upcoming-header">
@@ -21,7 +21,7 @@ function UpcomingPanel() {
             <p>Prepare Ams trip</p>
           </div>
           <div className="upcoming-info">
-            <span>due 15d</span>
+            <span>due 15D</span>
           </div>
         </li>
         <li>
@@ -29,7 +29,7 @@ function UpcomingPanel() {
             <p>Class project</p>
           </div>
           <div className="upcoming-info">
-            <span>Due 20d</span>
+            <span>Due 20D</span>
           </div>
         </li>
       </ul>
