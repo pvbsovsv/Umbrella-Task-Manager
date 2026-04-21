@@ -1,15 +1,18 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
 
 import Sidenav from './components/Sidenav'
 import Dashboard from './components/Dashboard'
 import RightPanel from './components/RightPanel'
+import Modal from './components/Modal'
+import NewTaskForm from './components/NewTaskForm'
 import Completed from './pages/Completed'
 import Tasks from './pages/Tasks'
 import Calendar from './pages/Calendar'
-import Modal from './components/Modal'
-import NewTaskForm from './components/NewTaskForm'
+import TaskDetail from './pages/TaskDetail'
+import NotFound from './pages/NotFound'
 
 
 import tasksJson from './assets/tasks.json'
@@ -19,7 +22,6 @@ import EditTask from './components/EditTask'
 function App() {
 
   const [taskList, setTaskList] = useState(tasksJson)
-  const [activeView, setActiveView] = useState("dashboard")
   const [showModal, setShowModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [editSelectedTask, setEditSelectedTask] = useState(null)
@@ -78,26 +80,25 @@ function App() {
 
       <div className="grid-sidenav">
 
-        <Sidenav activeView={activeView} setActiveView={setActiveView} setShowModal={setShowModal} />
+        <Sidenav setShowModal={setShowModal} />
 
       </div>
 
       <div className="grid-center">
-
-        {activeView === "dashboard" && <Dashboard
-          taskList={taskList}
-          deleteTask={deleteTask}
-          markAsCompleted={markAsCompleted}
-          editTask={editTask}
-          setShowEditModal={setShowEditModal}
-          setEditSelectedTask={setEditSelectedTask} />}
-
-        {activeView === "tasks" && <Tasks taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />}
-        {activeView === "completed" && <Completed taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask}  setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask}/>}
-        {activeView === "calendar" && <Calendar taskList={taskList} />}
+        <Routes>
+          <Route path='/' element={<Dashboard taskList={taskList}
+            deleteTask={deleteTask}
+            markAsCompleted={markAsCompleted}
+            editTask={editTask}
+            setShowEditModal={setShowEditModal}
+            setEditSelectedTask={setEditSelectedTask} />} />
+          <Route path='/tasks' element={<Tasks taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />} />
+          <Route path='/completed' element={<Completed taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />} />
+          <Route path='/calendar' element={<Calendar taskList={taskList} />} />
+          <Route path='/tasks/:id' element={<TaskDetail taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </div>
-
-
       <div className="grid-right">
         <RightPanel />
       </div>

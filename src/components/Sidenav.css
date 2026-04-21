@@ -24,16 +24,16 @@
   gap: 12px;
 }
 
-.sidenav-container ul li {
+.sidenav-container ul a{
   display: flex;
   align-items: center;
 }
 
-.sidenav-container ul li > span {
+.sidenav-container ul a> span {
   margin-left: 8px;
 }
 
-.sidenav-container ul li.is-active {
+.sidenav-container ul a.active {
   color: var(--text-primary);
   border-left: 3px solid var(--accent);
   padding-left: 10px;

@@ -1,6 +1,8 @@
 
 import "./TaskCard.css"
 
+import { useNavigate } from "react-router-dom";
+
 //icons
 import { CircleCheck, CircleX, FilePenLine } from 'lucide-react';
 
@@ -17,12 +19,13 @@ function TaskCard({ id, title, description, completed, priority, dueDate, delete
     }
 
 
+    const navigate = useNavigate()
 
     return (
         <div className="task-card glass">
 
             <div className="task-card-header">
-                <p>{title}</p>
+                <p onClick={() => navigate(`/tasks/${id}`)}>{title}</p>
                 <div className="priority-container">
                     <span style={{ borderColor: getColor(), color: getColor() }} >{priority}</span>
                 </div>

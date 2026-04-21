@@ -1,0 +1,79 @@
+.task-detail-container {
+  padding: 0 8px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.task-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.task-detail-header h1 {
+  font-size: 2.75rem;
+  text-wrap: wrap;
+}
+
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.task-low-row {
+    display: flex;
+    gap: 8px;
+
+}
+
+.task-buttons button {
+  color: var(--accent);
+}
+
+.task-detail-description span {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+}
+.task-d-date {display: flex; align-items: center;}
+
+.task-d-date span {
+  height: 25px;
+  width: fit-content;
+  padding: 2px 6px;
+  border: solid 1px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  
+}
+
+.task-notes-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    height: fit-content;
+}
+
+
+
+.task-notes-container h2 {
+    font-size: 1.0625rem;
+    border-right: solid 2px var(--text-secondary);
+    padding-right: 12px;
+    height: 100%;
+}
+
+.task-notes-container > p {
+    color: var(--text-secondary);
+}

@@ -2,10 +2,13 @@
 
 import "./RecentTaskCard.css"
 
+import { useNavigate } from "react-router-dom";
+
 import { Ellipsis } from 'lucide-react';
 
 function RecentTaskCard({ id, title, description, completed, priority, dueDate }) {
 
+const navigate = useNavigate()
 
     // color regarding priority
     function getColor() {
@@ -32,7 +35,7 @@ function RecentTaskCard({ id, title, description, completed, priority, dueDate }
     return (
 
 
-        <div className='rc-task-card glass'>
+        <div onClick={()=>navigate(`/tasks/${id}`)} className='rc-task-card glass'>
 
             <div className="rc-task-card-header">
                 <p>{title}</p>

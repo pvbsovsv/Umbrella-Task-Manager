@@ -1,4 +1,7 @@
 
+import {NavLink} from 'react-router-dom'
+
+
 import './Sidenav.css'
 
 // assets
@@ -11,7 +14,7 @@ import {LayoutDashboard,ListTodo, CalendarRange, FilePlusCorner, LifeBuoy, LogOu
 
 
 
-function Sidenav({activeView, setActiveView, setShowModal}) {
+function Sidenav({setShowModal}) {
 
   return (
     <div className='sidenav-container'>
@@ -20,22 +23,22 @@ function Sidenav({activeView, setActiveView, setShowModal}) {
       <nav className="sidenav">
       <div className='brand-logo'><img src={brandLogoWh} alt='brand-logo' /></div>
         <ul>
-          <li className={activeView === "dashboard" ? "is-active": "" } onClick={()=>setActiveView("dashboard")}> 
+          <NavLink  to={'/'} end> 
             <LayoutDashboard size={18} strokeWidth={1.5}/>
             <span>dashboard</span>
-          </li>
-          <li className={activeView === "tasks" ? "is-active" : ""} onClick={()=>setActiveView("tasks")}>  
+          </NavLink>
+          <NavLink to={'/tasks'} end>  
             <ListTodo size={18} strokeWidth={1.25} />
             <span>tasks</span> {/* remember priority filter */}
-          </li>
-          <li className={activeView === "completed" ? "is-active" : ""} onClick={()=>setActiveView("completed")}> 
+          </NavLink>
+          <NavLink to={'/completed'} end > 
             <UserRoundCheck size={18} strokeWidth={1.25} />
             <span>completed</span>
-          </li>
-          <li className={activeView === "calendar" ? "is-active" : "" } onClick={()=>setActiveView("calendar")}> 
+          </NavLink>
+          <NavLink to={'/calendar'} end> 
             <CalendarRange size={18} strokeWidth={1.25} />
             <span>calendar</span>
-          </li>
+          </NavLink>
         </ul>
       </nav>
 

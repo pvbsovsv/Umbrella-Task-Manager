@@ -75,3 +75,15 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* for safari */
 }
+
+.priority-container {
+  height: 25px;
+  min-width: 25px;
+  padding: 0 6px;
+  border: solid 1px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.0625rem;
+}
