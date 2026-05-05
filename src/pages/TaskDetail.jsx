@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './TaskDetail.css'
 
 import { CircleCheck, CircleX, FilePenLine } from 'lucide-react';
+import { useEffect } from 'react';
 
 
 
@@ -19,6 +20,12 @@ function TaskDetail({ taskList, deleteTask, markAsCompleted, setShowEditModal, s
     if (!selectedTask) {
         return <div>Task not found. <button onClick={()=> navigate("/")}>Go back</button></div>
     }
+
+    useEffect(() => {
+
+        console.log("id changed!")
+
+    },[id])
 
     // color regarding priority
     function getColor() {

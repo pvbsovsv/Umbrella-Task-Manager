@@ -26,7 +26,7 @@ function TaskCard({ id, title, description, completed, priority, dueDate, delete
 
             <div className="task-card-header">
                 <p onClick={() => navigate(`/tasks/${id}`)}>{title}</p>
-                <div className="priority-container">
+                <div >
                     <span style={{ borderColor: getColor(), color: getColor() }} >{priority}</span>
                 </div>
             </div>

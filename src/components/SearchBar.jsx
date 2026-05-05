@@ -6,11 +6,11 @@ import './SearchBar.css'
 import {Search } from 'lucide-react'
 
 
-function SearchBar() {
+function SearchBar( {setSearchQuery}) {
   return (
         <div className="searchbar">
             <Search size={18} strokeWidth={1.25} />
-            <input type="text" placeholder='Search tasks...' aria-label="Search tasks"></input>
+            <input type="text" placeholder='Search tasks...' aria-label="Search tasks" onChange={(e)=>setSearchQuery(e.target.value)}></input>
         </div>
 
 

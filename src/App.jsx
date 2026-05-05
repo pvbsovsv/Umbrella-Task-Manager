@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -21,10 +22,21 @@ import EditTask from './components/EditTask'
 
 function App() {
 
-  const [taskList, setTaskList] = useState(tasksJson)
+  // lazy initializer for tasklist JSON
+
+  const [taskList, setTaskList] = useState(() => {
+    const savedTasks = localStorage.getItem('tasks')
+    return savedTasks ? JSON.parse(savedTasks) : tasksJson
+  })
   const [showModal, setShowModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [editSelectedTask, setEditSelectedTask] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
+
+
+
+
 
 
 
@@ -70,10 +82,11 @@ function App() {
 
   }
 
+  //Persisting taskList in Local Storage (useEffect + useState)
 
-
-
-
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(taskList))
+  }, [taskList])
 
   return (
     <div className="app-container">
@@ -91,7 +104,8 @@ function App() {
             markAsCompleted={markAsCompleted}
             editTask={editTask}
             setShowEditModal={setShowEditModal}
-            setEditSelectedTask={setEditSelectedTask} />} />
+            setEditSelectedTask={setEditSelectedTask}
+            isLoading={isLoading} />} />
           <Route path='/tasks' element={<Tasks taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />} />
           <Route path='/completed' element={<Completed taskList={taskList} deleteTask={deleteTask} markAsCompleted={markAsCompleted} editTask={editTask} setShowEditModal={setShowEditModal} setEditSelectedTask={setEditSelectedTask} />} />
           <Route path='/calendar' element={<Calendar taskList={taskList} />} />

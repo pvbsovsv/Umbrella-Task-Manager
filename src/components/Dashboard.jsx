@@ -1,4 +1,6 @@
 
+
+import { useState } from 'react'
 //css
 import './Dashboard.css'
 //components
@@ -8,7 +10,7 @@ import TaskList from './TaskList'
 import RecentTasks from './RecentTasks'
 
 
-function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask }) {
+function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask, isLoading, error }) {
 
 
     //active tasks count for StatCard
@@ -20,12 +22,15 @@ function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEdi
     //done tasks count for StatCard
     const doneTasks = taskList.filter(task => task.completed === true)
 
+    //search bar query
+    const [searchQuery, setSearchQuery] = useState("")
 
+    const searchFilteredTasks = taskList.filter(task => task.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
 
     return (
         <div className="dashboard-container">
-            <SearchBar />
+            <SearchBar setSearchQuery={setSearchQuery} />
 
             <div className="dashboard">
                 <h1>Hey there, Winston 👋</h1>
@@ -38,20 +43,37 @@ function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEdi
 
                 <section className="rc-tasks-container">
                     <h2>Recent Tasks</h2>
-                    <RecentTasks taskList={taskList} />
-
+                    <RecentTasks taskList={taskList} searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchFilteredTasks={searchFilteredTasks} />
                 </section>
 
                 <section className="tasks-container">
-                    <h2>Due Soon</h2>
-                    <TaskList
-                        taskList={taskList.filter(task => task.completed === false)}
-                        deleteTask={deleteTask}
-                        markAsCompleted={markAsCompleted}
-                        editTask={editTask}
-                        setShowEditModal={setShowEditModal}
-                        setEditSelectedTask={setEditSelectedTask}
-                    />
+
+
+                    {isLoading ? <span>spinner loading</span> 
+                    
+                    
+                    : error ? <span>error fetching data</span> 
+                    
+                    
+                    : 
+                    <>    
+                        <h2>Due Soon</h2>
+                        
+                        <TaskList
+                            taskList={taskList.filter(task => task.completed === false)}
+                            deleteTask={deleteTask}
+                            markAsCompleted={markAsCompleted}
+                            editTask={editTask}
+                            setShowEditModal={setShowEditModal}
+                            setEditSelectedTask={setEditSelectedTask}
+                            searchFilteredTasks={searchFilteredTasks}
+                            searchQuery={searchQuery}
+                        />
+
+                    </>}
+
+
+
                 </section>
 
 
