@@ -22,71 +22,110 @@ import EditTask from './components/EditTask'
 
 function App() {
 
-  // lazy initializer for tasklist JSON
 
-  const [taskList, setTaskList] = useState(() => {
-    const savedTasks = localStorage.getItem('tasks')
-    return savedTasks ? JSON.parse(savedTasks) : tasksJson
-  })
+
   const [showModal, setShowModal] = useState(false)
   const [showEditModal, setShowEditModal] = useState(false)
   const [editSelectedTask, setEditSelectedTask] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [taskList, setTaskList] = useState([])
 
 
 
 
 
+  // fetch async function
+  useEffect(() => {
+    async function loadTasks() {
 
+      setIsLoading(true)
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`)
+        const data = await res.json()
+        setTaskList(data)
+      } catch (err) {
+        setError('Failed to load tasks')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    loadTasks();
+  }, [])
 
+  //add task
 
-  //add tasks
-  function addTask(newTask) {
+  async function addTask(newTask) {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newTask)
+      })
+      const data = await res.json()
 
-    //get max id
-    const maxId = taskList.reduce((max, task) => (task.id > max ? task.id : max), 0)
-
-    const taskWithId = { ...newTask, id: maxId + 1, completed: false }
-    //add it to the task list
-    setTaskList(prev => [...prev, taskWithId])
+      setTaskList(prev => [...prev, data])
+    } catch (err) {
+      setError('Failed to create new Task')
+    }
   }
+
 
   //delete tasks
 
-  function deleteTask(id) {
+  async function deleteTask(id) {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
+        method: 'DELETE',
+      })
+      setTaskList(prev => prev.filter((task) => task.id !== id))
+    } catch (err) {
+      setError('Failed to delete task')
+    }
 
-    //filter out the task that matches the id 
-    const updatedTaskList = taskList.filter((task) => task.id !== id)
 
-    //update tasklist state
-    setTaskList(updatedTaskList)
   }
+
+
+
+
+
 
   //mark task complete
 
-  function markAsCompleted(id) {
+  async function markAsCompleted(id) {
 
-    const completedTask = taskList.map(task => task.id === id ? { ...task, completed: true } : task)
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({ completed: true })
+      })
+      setTaskList(prev => prev.map(task => task.id === id ? { ...task, completed: true } : task))
+    } catch (err) {
+      setError('Failed to mark task as completed')
+    }
 
-    setTaskList(completedTask)
   }
 
   //edit task
 
-  function editTask(id, updatedFields) {
+  async function editTask(id, updatedFields) {
 
-    const editedTask = taskList.map(task => task.id === id ? { ...task, ...updatedFields } : task)
 
-    setTaskList(editedTask)
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(updatedFields)
+      })
+      setTaskList(prev => prev.map(task => task.id === id ? { ...task, ...updatedFields } : task))
+    } catch (err) {
+      setError('Failed to edit task')
+    }
+
 
   }
-
-  //Persisting taskList in Local Storage (useEffect + useState)
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(taskList))
-  }, [taskList])
 
   return (
     <div className="app-container">
