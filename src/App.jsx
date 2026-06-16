@@ -85,12 +85,6 @@ function App() {
 
 
   }
-
-
-
-
-
-
   //mark task complete
 
   async function markAsCompleted(id) {
