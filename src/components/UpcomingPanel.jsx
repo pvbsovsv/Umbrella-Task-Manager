@@ -1,8 +1,21 @@
 import './UpcomingPanel.css'
 
+//hook
+
+import useTasks from '../hooks/useTasks'
+
+
 
 function UpcomingPanel() {
-  //todo! this list now is hardcoded, needs to be mapped
+
+  
+
+
+
+
+
+
+
   return (
     <div className='upcoming-container'>
 

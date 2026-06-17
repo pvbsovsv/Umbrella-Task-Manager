@@ -2,10 +2,14 @@
 
 import './RecentTasks.css'
 
+import useTasks from '../hooks/useTasks'
+
 
 import RecentTaskCard from "./RecentTaskCard"
 
-function RecentTasks({ taskList, searchFilteredTasks, searchQuery }) {
+function RecentTasks() {
+
+    const { taskList, searchFilteredTasks, searchQuery } = useTasks()
 
     let recentTaskstoDisplay
 
@@ -14,7 +18,7 @@ function RecentTasks({ taskList, searchFilteredTasks, searchQuery }) {
     } else if (searchQuery.length > 0) {
         recentTaskstoDisplay = searchFilteredTasks
     } else if (searchQuery.length === 0) {
-        recentTaskstoDisplay = taskList.slice(0,6)
+        recentTaskstoDisplay = taskList.slice(0, 6)
     }
 
     return (

@@ -3,11 +3,15 @@ import "./TaskCard.css"
 
 import { useNavigate } from "react-router-dom";
 
+import useTasks from '../hooks/useTasks'
+
+
 //icons
 import { CircleCheck, CircleX, FilePenLine } from 'lucide-react';
 
-function TaskCard({ id, title, description, completed, priority, dueDate, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask }) {
+function TaskCard({ id, title, description, completed, priority, dueDate}) {
 
+    const { deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask } = useTasks()
 
     // color regarding priority
     function getColor() {

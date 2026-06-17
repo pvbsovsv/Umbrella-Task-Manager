@@ -7,9 +7,15 @@ import { CircleCheck, CircleX, FilePenLine } from 'lucide-react';
 import { useEffect } from 'react';
 
 
+import useTasks from '../hooks/useTasks'
 
 
-function TaskDetail({ taskList, deleteTask, markAsCompleted, setShowEditModal, setEditSelectedTask }) {
+
+
+
+function TaskDetail() {
+
+    const {taskList, deleteTask, markAsCompleted, setShowEditModal, setEditSelectedTask } = useTasks()
 
     const { id } = useParams()
 

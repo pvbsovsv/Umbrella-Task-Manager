@@ -1,6 +1,3 @@
-
-
-import { useState } from 'react'
 //css
 import './Dashboard.css'
 //components
@@ -9,9 +6,12 @@ import StatCard from './StatCard'
 import TaskList from './TaskList'
 import RecentTasks from './RecentTasks'
 
+import useTasks from '../hooks/useTasks'
 
-function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask, isLoading, error }) {
 
+function Dashboard() {
+    
+    const {taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask, isLoading, error, setSearchQuery} = useTasks()
 
     //active tasks count for StatCard
     const activeTasks = taskList.filter(task => task.completed === false)
@@ -22,10 +22,6 @@ function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEdi
     //done tasks count for StatCard
     const doneTasks = taskList.filter(task => task.completed === true)
 
-    //search bar query
-    const [searchQuery, setSearchQuery] = useState("")
-
-    const searchFilteredTasks = taskList.filter(task => task.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
 
     return (
@@ -43,7 +39,7 @@ function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEdi
 
                 <section className="rc-tasks-container">
                     <h2>Recent Tasks</h2>
-                    <RecentTasks taskList={taskList} searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchFilteredTasks={searchFilteredTasks} />
+                    <RecentTasks/>
                 </section>
 
                 <section className="tasks-container">
@@ -59,16 +55,7 @@ function Dashboard({ taskList, deleteTask, markAsCompleted, editTask, setShowEdi
                     <>    
                         <h2>Due Soon</h2>
                         
-                        <TaskList
-                            taskList={taskList.filter(task => task.completed === false)}
-                            deleteTask={deleteTask}
-                            markAsCompleted={markAsCompleted}
-                            editTask={editTask}
-                            setShowEditModal={setShowEditModal}
-                            setEditSelectedTask={setEditSelectedTask}
-                            searchFilteredTasks={searchFilteredTasks}
-                            searchQuery={searchQuery}
-                        />
+                        <TaskList/>
 
                     </>}
 

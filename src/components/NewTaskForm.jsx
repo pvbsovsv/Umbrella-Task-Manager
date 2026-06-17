@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import './FormStyles.css'
 
-function NewTaskForm({ addTask, onClose }) {
+
+import useTasks from '../hooks/useTasks'
+
+
+function NewTaskForm() {
+
+    const {addTask, setShowModal} = useTasks()
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -30,7 +36,7 @@ function NewTaskForm({ addTask, onClose }) {
            setPriority("")
            setDueDate("")
            //close modal function
-           onClose()
+           setShowModal(false)
     }
 
 

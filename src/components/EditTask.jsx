@@ -1,8 +1,12 @@
+import {useState } from 'react'
 import './FormStyles.css'
-import { useState } from 'react'
+import useTasks from '../hooks/useTasks'
 
 
-function EditTask({ editTask, editSelectedTask, onClose }) {
+
+function EditTask() {
+
+    const {editTask, editSelectedTask, setShowEditModal} = useTasks()
 
 
 
@@ -26,7 +30,7 @@ function EditTask({ editTask, editSelectedTask, onClose }) {
         editTask(editSelectedTask.id, {title, description, priority, dueDate})
 
         //close modal function
-        onClose()
+        setShowEditModal(false)
 
 
     }

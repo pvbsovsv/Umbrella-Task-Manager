@@ -1,6 +1,11 @@
+import useTasks from '../hooks/useTasks'
 
 
-function Tasks({taskList, deleteTask, markAsCompleted, editTask, setEditSelectedTask, setShowEditModal}) {
+
+function Tasks() {
+
+const {taskList, deleteTask, markAsCompleted, editTask, setEditSelectedTask, setShowEditModal} = useTasks()
+
   return (
     <div>Tasks</div>
   )

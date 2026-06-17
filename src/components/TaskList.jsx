@@ -6,9 +6,13 @@ import './TaskList.css'
 //components
 import TaskCard from "./TaskCard";
 
+import useTasks from '../hooks/useTasks'
 
-function TaskList({ taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask, searchFilteredTasks, searchQuery }) {
 
+
+function TaskList() {
+
+    const {taskList, deleteTask, markAsCompleted, editTask, setShowEditModal, setEditSelectedTask, searchFilteredTasks, searchQuery} = useTasks()
 
     let tasksToDisplay
 
@@ -34,11 +38,6 @@ function TaskList({ taskList, deleteTask, markAsCompleted, editTask, setShowEdit
                     <TaskCard
                         key={task.id}
                         {...task}
-                        deleteTask={deleteTask}
-                        markAsCompleted={markAsCompleted}
-                        editTask={editTask}
-                        setShowEditModal={setShowEditModal}
-                        setEditSelectedTask={setEditSelectedTask}
                     />))
 
                 :

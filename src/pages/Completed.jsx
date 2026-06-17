@@ -1,6 +1,10 @@
 
+import useTasks from '../hooks/useTasks'
 
-function Completed({taskList, deleteTask, markAsCompleted, editTask}) {
+
+
+function Completed() {
+  const {taskList, deleteTask, markAsCompleted, editTask} = useTasks()
   return (
     <div>Completed</div>
   )
